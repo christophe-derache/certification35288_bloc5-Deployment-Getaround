@@ -7,6 +7,13 @@ import seaborn as sns
 import openpyxl
 import plotly.figure_factory as ff
 
+### Config
+st.set_page_config(
+    page_title="Getaround Project",
+    page_icon="💸 ",
+    layout="wide"
+)
+
 st.title('Dashboard - Getaround')
 st.header('The new feature analysis')
 st.markdown("👋 Welcome, you'll find here the dashboard created to share my analysis on the Getaround Project")
@@ -23,11 +30,17 @@ LATE_GROUPS = 'late_groups'
 EARLY_GROUPS = 'early_groups'
 
 
+# LOCAL DEV URLS
+# DATA_URL_original = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\get_around_delay_analysis.xlsx'
+# DATA_URL_analysis = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data.csv'
+# DATA_URL_late = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data_late.csv'
+# DATA_URL_early = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data_early.csv'
 
-DATA_URL_original = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\get_around_delay_analysis.xlsx'
-DATA_URL_analysis = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data.csv'
-DATA_URL_late = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data_late.csv'
-DATA_URL_early = 'c:\\Users\\Christophe\\Desktop\\certification35288_bloc5-Deployment-Getaround\\1 - Data Analysis & Dashboard\\src\\dashboard_data_early.csv'
+# DEPLOYMENT URLS
+DATA_URL_original = 'app/src/get_around_delay_analysis.xlsx'
+DATA_URL_analysis = 'app/src/dashboard_data.csv'
+DATA_URL_late = 'app/src/dashboard_data_late.csv'
+DATA_URL_early = 'app/src/dashboard_data_early.csv'
 
 @st.cache
 def load_data(DATA_URL):
