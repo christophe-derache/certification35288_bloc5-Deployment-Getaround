@@ -1,0 +1,14 @@
+,feature_list,target_variable
+0,model_key,rental_price_per_day
+1,mileage,rental_price_per_day
+2,engine_power,rental_price_per_day
+3,fuel,rental_price_per_day
+4,paint_color,rental_price_per_day
+5,car_type,rental_price_per_day
+6,private_parking_available,rental_price_per_day
+7,has_gps,rental_price_per_day
+8,has_air_conditioning,rental_price_per_day
+9,automatic_car,rental_price_per_day
+10,has_getaround_connect,rental_price_per_day
+11,has_speed_regulator,rental_price_per_day
+12,winter_tires,rental_price_per_day
