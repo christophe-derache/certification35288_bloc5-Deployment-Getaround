@@ -1,0 +1,2 @@
+model_key,mileage,engine_power,fuel,paint_color,car_type,private_parking_available,has_gps,has_air_conditioning,automatic_car,has_getaround_connect,has_speed_regulator,winter_tires
+0,Citroën,100000,100,diesel,black,convertible,True,True,True,True,True,True,True

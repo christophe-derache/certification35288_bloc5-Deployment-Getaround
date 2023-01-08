@@ -1,0 +1,8 @@
+fastapi 
+joblib
+uvicorn[standard]
+pydantic 
+typing 
+pandas==1.5.1
+gunicorn==20.1.0
+
