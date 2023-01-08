@@ -123,26 +123,20 @@ async def to_predict(formFeatures: FormFeatures):
        'has_air_conditioning', 'automatic_car', 'has_getaround_connect',
        'has_speed_regulator', 'winter_tires']
     
-    features_values = [ model_key_input, mileage_input, engine_power_input, 
-                        fuel_input, paint_color_input, car_type, private_parking_available_input, 
-                        has_gps_input, has_air_conditioning_input, automatic_car_input,
-                        has_getaround_connect_input, has_speed_regulator_input, winter_tires_input,
-                        ]
-    # print(features_values)
-    # print(np.array([features_values]))
+
 
     # Values input to obtain prediction
-    X_to_predict = pd.DataFrame(np.array([features_values]), columns = features_list)
-    print(X_to_predict.columns)
-    print(X_to_predict.values)
-    print("step1")
+    X_to_predict = pd.DataFrame([[model_key_input, mileage_input, engine_power_input, 
+                        fuel_input, paint_color_input, car_type, private_parking_available_input, 
+                        has_gps_input, has_air_conditioning_input, automatic_car_input,
+                        has_getaround_connect_input, has_speed_regulator_input, winter_tires_input]], columns = features_list)
+
+
     # Load model
     loaded_model = joblib.load('20230108-153507-xgbregressor.joblib')
-    print("step2")
 
     #prediction 
     prediction = loaded_model.predict(X_to_predict)
-    print("step3")
 
     #format response
     response = {'prediction': prediction.tolist()[0]}
