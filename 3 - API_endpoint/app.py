@@ -152,7 +152,7 @@ async def to_predict(formFeatures: FormFeatures):
 
 
     # Load model
-    loaded_model = joblib.load('20230108-153507-xgbregressor.joblib')
+    loaded_model = joblib.load('20230109-153321-xgbregressor.joblib')
 
     #prediction 
     prediction = loaded_model.predict(X_to_predict)
