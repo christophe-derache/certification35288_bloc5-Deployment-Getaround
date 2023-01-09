@@ -1,7 +1,7 @@
 import pandas as pd 
 import uvicorn
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Literal
 import numpy as np
 import joblib
@@ -9,21 +9,47 @@ import joblib
 
 
 description = """
-Welcome in my app realized for the Getaround Project !
+Welcome in my API Documentation.
+This app was realized for the Getaround Project.
 
-## Machine Learning
-You'll find the prediction endpoint : 'THISURL/predict'
+## Machine Learning Model's prediction:
+The prediction endpoint is : 
+#### '/predict'
 
 This endpoint accepts POST Methods with JSON input data.
-Take a look at my documentation at : 'THISURL/docs'
+
+Below, you can copy/paste an example in python to try from your notebook:\n
+
+If you prefer a Curl example, you'll see it in the 'Try it out' function.
+```
+
+import requests\n
+import json\n
+response = requests.post("http://127.0.0.1:8000/predict", json={\n
+    'model_key': "Citroën", \n
+    'mileage' : '200000', \n
+    'engine_power':'100', \n
+    'fuel': 'diesel',\n
+    'paint_color' :  'black', \n
+    'car_type' : 'convertible', \n
+    'private_parking_available' : False, \n
+    'has_gps' : False,\n
+    'has_air_conditioning' : False,\n
+    'automatic_car' : False,\n
+    'has_getaround_connect' : True,\n
+    'has_speed_regulator' : True,\n
+    'winter_tires' : True\n
+})\n
+print(response.json())
+```
 
 """
 
 tags_metadata = [
     
     {
-        "name": "Machine_Learning",
-        "description": "Prediction Endpoint."
+        "name": "Machine_Learning 'Prediction Endpoint'.",
+        #"description": "Prediction Endpoint."
     }
 ]
 
@@ -34,6 +60,8 @@ app = FastAPI(
     version="0.1",
     openapi_tags=tags_metadata
 )
+
+
 
 class FormFeatures(BaseModel):
     model_key: Literal['Citroën',
@@ -59,10 +87,10 @@ class FormFeatures(BaseModel):
  'SEAT',
  'Subaru',
  'Suzuki',
- 'Toyota'] = 'Citroën'
-    mileage: int = 100000
-    engine_power: int = 100
-    fuel: Literal['diesel', 'petrol', 'hybrid_petrol', 'electro'] = 'diesel'
+ 'Toyota'] = Field(example='Citroën')
+    mileage: int = Field(example=100000)
+    engine_power: int = Field(example=100)
+    fuel: Literal['diesel', 'petrol', 'hybrid_petrol', 'electro'] = Field(example='diesel')
     paint_color: Literal['black',
  'grey',
  'white',
@@ -72,7 +100,7 @@ class FormFeatures(BaseModel):
  'orange',
  'beige',
  'brown',
- 'green'] = 'black'
+ 'green'] = Field(example='black')
     car_type: Literal['convertible',
  'coupe',
  'estate',
@@ -80,26 +108,17 @@ class FormFeatures(BaseModel):
  'sedan',
  'subcompact',
  'suv',
- 'van'] = 'convertible'
-    private_parking_available: Literal[True, False] = True
-    has_gps: Literal[True, False] = True
-    has_air_conditioning: Literal[True, False] = True
-    automatic_car: Literal[True, False] = True
-    has_getaround_connect: Literal[True, False] = True
-    has_speed_regulator: Literal[True, False] = True
-    winter_tires: Literal[True, False] = True
+ 'van'] = Field(example='convertible')
+    private_parking_available: Literal[True, False] = Field(example=True)
+    has_gps: Literal[True, False] = Field(example=True)
+    has_air_conditioning: Literal[True, False] = Field(example=True)
+    automatic_car: Literal[True, False] = Field(example=True)
+    has_getaround_connect: Literal[True, False] = Field(example=True)
+    has_speed_regulator: Literal[True, False] = Field(example=True)
+    winter_tires: Literal[True, False] = Field(example=True)
 
 
-
-@app.get("/")
-async def index():
-
-    message = "Hello world! If you want to know how to use the API, check out documentation at `/docs`"
-
-    return message
-
-
-@app.post("/predict", tags=["Machine_Learning"])
+@app.post("/predict")
 async def to_predict(formFeatures: FormFeatures):
 
     # Read Data Input
@@ -139,11 +158,21 @@ async def to_predict(formFeatures: FormFeatures):
     prediction = loaded_model.predict(X_to_predict)
 
     #format response
-    response = {'prediction': prediction.tolist()[0]}
+    prediction = prediction.tolist()[0]
+    prediction = round(prediction, 2)
+    response = {'prediction': prediction}
 
     return response
 
 
+
+
+@app.get("/")
+async def index():
+
+    message = "Welcome in my app (API) realized for the Getaround Project, you'll find the prediction endpoint : '/predict' . For more informations, take a look at /docs"
+    
+    return message
 
 ##### if we run this file, run the code #######
 
