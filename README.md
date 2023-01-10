@@ -24,7 +24,7 @@
 In this folder, you'll find :
 - A notebook containing all analysis and conclusion 
 - The whole code for the deployed Dashboard\
-- Tt's a Streamlit app containerized with Docker and pushed on Heroku
+- It's a Streamlit app containerized with Docker and pushed on Heroku
 
 Dashboard URL : https://bloc-5-dashboard.herokuapp.com/
 
