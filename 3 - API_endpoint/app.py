@@ -25,7 +25,7 @@ If you prefer a Curl example, you'll see it in the 'Try it out' function.
 
 import requests\n
 import json\n
-response = requests.post("http://127.0.0.1:8000/predict", json={\n
+response = requests.post("PUBLIC_URL/predict", json={\n
     'model_key': "Citroën", \n
     'mileage' : '200000', \n
     'engine_power':'100', \n
