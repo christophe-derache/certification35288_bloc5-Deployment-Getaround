@@ -13,10 +13,10 @@
 
 >*Late returns at checkout can generate high friction for the next driver if the car was supposed to be rented again on the same day : Customer service often reports users unsatisfied because they had to wait for the car to come back from the previous rental or users that even had to cancel their rental because the car wasn’t returned on time.*
 
-*Our Product Manager still needs to decide:*
+>*Our Product Manager still needs to decide:*
 
-- *threshold: how long should the minimum delay be?*
-- *scope: should we enable the feature for all cars?, only Connect cars?*
+>- *threshold: how long should the minimum delay be?*
+>- *scope: should we enable the feature for all cars?, only Connect cars?*
 
 
 ## 1 - Data Analysis & Web Dashboard
