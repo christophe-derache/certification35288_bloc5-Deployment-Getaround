@@ -5,7 +5,7 @@
 - **Contact**: *Christophe DERACHE*
 - **E-mail**&nbsp;&nbsp;: *christophe.derache@gmail.com*
 
-> Video link : 👉 ********************** 👈
+> Video link : 👉 https://share.vidyard.com/watch/BbWFFCjFe1hsgGcvyey1JB? 👈
 
 ## Subject
 
