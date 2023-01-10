@@ -23,7 +23,7 @@
 
 In this folder, you'll find :
 - A notebook containing all analysis and conclusion 
-- The whole code for the deployed Dashboard 
+- The whole code for the deployed Dashboard\
 (it's a Streamlit app containerized with Docker and pushed on Heroku)
 
 Dashboard URL : https://bloc-5-dashboard.herokuapp.com/
@@ -39,7 +39,7 @@ In this folder, you'll find :
 ## 3 - API Endpoint
 
 In this folder, you'll find the code of my deployed API app:
-- This API allow everybody to request my machine learning model wich predict the best price to rent a car, depending on several parameters.
+- This API allow everybody to request my machine learning model wich predict the best price to rent a car, depending on several parameters.\
 (it's a FastAPI app containerized with Docker and pushed on Heroku)
 
 API URL : https://bloc-5-api.herokuapp.com/
